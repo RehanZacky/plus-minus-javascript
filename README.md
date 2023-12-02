@@ -5,7 +5,7 @@ performs certain operations, and outputs the results to stdout (standard output)
 
 Let's break down the main parts of the code:
 
-1. *Input Handling:*
+1. **Input Handling:**
 ```javascript
 process.stdin.resume();
 process.stdin.setEncoding('utf-8');
