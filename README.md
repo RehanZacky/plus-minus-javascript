@@ -1,57 +1,83 @@
-# Bisection_method-in-phyton
-You can use the bisection method to find the root of the equation x^4 - x^3 + 2x^2 - 2x - 12 = 0
-in the interval [-2, 0] with a tolerance of 0.0001. Here's the implementation in Python:
+# plus-minus-javascript
+The provided code is an implementation 
+of a JavaScript program that reads input from stdin (standard input), 
+performs certain operations, and outputs the results to stdout (standard output).
 
-```python
-def bisection_method(f, a, b, tolerance, max_iterations=100):
-    if f(a) * f(b) >= 0:
-        raise ValueError("The signs of f(a) and f(b) must be different.")
-    
-    iteration = 0
-    while (b - a) / 2.0 > tolerance and iteration < max_iterations:
-        c = (a + b) / 2.0
-        if f(c) == 0:
-            return round(c, 4)  # Using round() to limit decimal places
-        elif f(a) * f(c) < 0:
-            b = c
-        else:
-            a = c
-        iteration += 1
-        print(f"Iteration {iteration}: a = {a:.4f}, b = {b:.4f}, c = {c:.4f}, f(c) = {f(c):.6f}")
-    
-    return round((a + b) / 2.0, 4)
+Let's break down the main parts of the code:
 
-# Function for the equation x^4 - x^3 + 2x^2 - 2x - 12
-def equation(x):
-    return x**4 - x**3 + 2*x**2 - 2*x - 12
-
-a = -2.0
-b = 0.0
-tolerance = 0.0001
-
-root = bisection_method(equation, a, b, tolerance)
-print("Root of the equation: {:.4f}".format(root))
+1. *Input Handling:*
+```javascript
+process.stdin.resume();
+process.stdin.setEncoding('utf-8');
 ```
-Output:
+This code activates stdin to receive input.
+*setEncoding* is used to specify the input encoding as UTF-8.
+
+2. *Input Reading:*
+```javascript
+process.stdin.on('data', function(inputStdin) {
+    inputString += inputStdin;
+});
+
+process.stdin.on('end', function() {
+    inputString = inputString.split('\n');
+    main();
+});
 ```
-Iteration 1: a = -2.0000, b = -1.0000, c = -1.0000, f(c) = -6.000000
-Iteration 2: a = -1.5000, b = -1.0000, c = -1.5000, f(c) = 3.937500
-Iteration 3: a = -1.5000, b = -1.2500, c = -1.2500, f(c) = -1.980469
-Iteration 4: a = -1.3750, b = -1.2500, c = -1.3750, f(c) = 0.705322
-Iteration 5: a = -1.3750, b = -1.3125, c = -1.3125, f(c) = -0.701157
-Iteration 6: a = -1.3750, b = -1.3438, c = -1.3438, f(c) = -0.014388
-Iteration 7: a = -1.3594, b = -1.3438, c = -1.3594, f(c) = 0.341276
-Iteration 8: a = -1.3516, b = -1.3438, c = -1.3516, f(c) = 0.162406
-Iteration 9: a = -1.3477, b = -1.3438, c = -1.3477, f(c) = 0.073750
-Iteration 10: a = -1.3457, b = -1.3438, c = -1.3457, f(c) = 0.029617
-Iteration 11: a = -1.3447, b = -1.3438, c = -1.3447, f(c) = 0.007598
-Iteration 12: a = -1.3447, b = -1.3442, c = -1.3442, f(c) = -0.003399
-Iteration 13: a = -1.3445, b = -1.3442, c = -1.3445, f(c) = 0.002099
-Iteration 14: a = -1.3445, b = -1.3444, c = -1.3444, f(c) = -0.000650
-Root of the equation: -1.3444
+This code handles reading input from stdin. 
+Input data is appended to the *inputString* variable on each 'data' event, 
+and when the 'end' event occurs (indicating no more input data), 
+the input is split into lines using '\n' as a delimiter, and the *main()* function is called.
+
+3. *Function readLine:*
+```javascript
+function readLine() {
+    return inputString[currentLine++];
+}
 ```
-In the code above, we use the equation function to compute the value of the equation x^4 - x^3 + 2x^2 - 2x - 12
-Then, we call the bisection_method with the interval [-2, 0] and a tolerance of 0.0001 to find the root of the equation. 
-The root that is found is rounded to 4 decimal places as per the requested precision. 
-Additionally, we have set a maximum iteration limit of 100 to ensure that the iteration stops 
-if a solution is not found after a sufficiently large number of iterations.
+This function is used to read a line from the previously split input and return that line.
+
+4. *Function 'plusMinus':*
+```javascript
+function plusMinus(arr) {
+    // ... (see explanation below)
+}
+```
+This function takes an array of integers (arr), 
+then calculates and prints the ratios of positive, negative, and zero elements in the array.
+
+5. *Function main:*
+```javascript
+function main() {
+    const n = parseInt(readLine().trim(), 10);
+
+    const arr = readLine().replace(/\s+$/g, '').split(' ').map(arrTemp => parseInt(arrTemp, 10));
+
+    plusMinus(arr);
+}
+```
+This function reads the number of array elements from the first line of input, 
+reads the array of integers from the second line, 
+and then calls the *plusMinus* function with the read array.
+
+In the plusMinus function:
+
+- Variables positives, negatives, and zeros are used to store the counts of
+  positive, negative, and zero elements.
+- After iterating through the arr array,
+  the ratios of these elements are calculated and printed to stdout.
+  
+This code appears to be designed to calculate the ratio of positive, 
+negative, and zero elements in an array and print the results.
+
+*input:*
+```
+6
+-4 3 -9 0 4 1
+```
+*Print Result:*
+```
+0.5
+0.3333333333333333
+0.16666666666666666
+```
