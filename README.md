@@ -13,7 +13,7 @@ process.stdin.setEncoding('utf-8');
 This code activates stdin to receive input.
 *setEncoding* is used to specify the input encoding as UTF-8.
 
-2. *Input Reading:*
+2. **Input Reading:**
 ```javascript
 process.stdin.on('data', function(inputStdin) {
     inputString += inputStdin;
@@ -29,7 +29,7 @@ Input data is appended to the *inputString* variable on each 'data' event,
 and when the 'end' event occurs (indicating no more input data), 
 the input is split into lines using '\n' as a delimiter, and the *main()* function is called.
 
-3. *Function readLine:*
+3. **Function readLine:**
 ```javascript
 function readLine() {
     return inputString[currentLine++];
@@ -37,7 +37,7 @@ function readLine() {
 ```
 This function is used to read a line from the previously split input and return that line.
 
-4. *Function 'plusMinus':*
+4. **Function 'plusMinus':**
 ```javascript
 function plusMinus(arr) {
     // ... (see explanation below)
@@ -46,7 +46,7 @@ function plusMinus(arr) {
 This function takes an array of integers (arr), 
 then calculates and prints the ratios of positive, negative, and zero elements in the array.
 
-5. *Function main:*
+5. **Function main:**
 ```javascript
 function main() {
     const n = parseInt(readLine().trim(), 10);
@@ -70,7 +70,7 @@ In the plusMinus function:
 This code appears to be designed to calculate the ratio of positive, 
 negative, and zero elements in an array and print the results.
 
-*Full Code:*
+**Full Code:**
 ```javascript
 'use strict';
 
@@ -132,13 +132,13 @@ function main() {
 }
 ```
 
-*input:*
+**Input:**
 ```
 6
 -4 3 -9 0 4 1
 ```
 
-*Print Result:*
+**Print Result:**
 ```
 0.5
 0.3333333333333333
