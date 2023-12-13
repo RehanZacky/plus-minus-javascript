@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 uwu
+=======
+aiwueiwe
+>>>>>>> f61b8b35bfa07e9f262777f60ff45f2fb89b0ec3

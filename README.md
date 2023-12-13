@@ -144,7 +144,3 @@ function main() {
 0.3333333333333333
 0.16666666666666666
 ```
-
-test
-
-aku coba isi file nak kene
